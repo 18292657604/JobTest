@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function search() {
+            var rule_name = $("#rule_name").val();
+
+            var str = "http://localhost:8080/jor/jatoolsreport?file=C:/Users/angel/Desktop/report/44.xml&as=dhtml";
+
+            if(rule_name!=undefined||rule_name!=''){
+                str += "&rule_name="+rule_name;
+            }
+
+            $("#report").attr("src", str);
+        }
+    </script>
+</head>
+<body>
+
+名称：<input name="rule_name" type="text" id="rule_name">&nbsp;&nbsp;&nbsp;&nbsp;
+
+<button onclick="search()">搜素</button>
+<br/>
+<br/>
+<br/>
+<iframe id="report" src="http://localhost:8080/jor/jatoolsreport?file=C:/Users/angel/Desktop/report/44.xml&as=dhtml" style="width:  50%;height: 800px;">
+    报表显示
+</iframe>
+
+</body>
+
+</html>

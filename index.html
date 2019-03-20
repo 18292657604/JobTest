@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function search() {
+            var uuid = $("#uuid").val();
+            var metric_name = $("#metric_name").val();
+            var obj_type = $("#obj_type option:selected").val();
+
+            var str = "http://localhost:8080/jor/jatoolsreport?file=C:/Users/angel/Desktop/report/33.xml&as=dhtml";
+            if(uuid!=undefined||uuid!='') {
+                str += "&uuid=" + uuid;
+            }
+            if(metric_name!=undefined||metric_name!=''){
+                str += "&metric_name="+metric_name;
+            }
+
+            if(obj_type!=undefined||obj_type!=''){
+                str += "&obj_type="+obj_type;
+            }
+
+            $("#report").attr("src", str);
+        }
+    </script>
+</head>
+<body>
+
+    ID搜素：<input name="uuid" type="text" id="uuid">&nbsp;&nbsp;&nbsp;&nbsp;
+    类型：
+    <select id="obj_type">
+        <option value="" selected="selected">请选择</option>
+        <option value="pcfwq">pcfwq</option>
+        <option value="xxj">xxj</option>
+    </select>
+
+
+    名称：<input name="metric_name" type="text" id="metric_name">&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <button onclick="search()">搜素</button>
+    <br/>
+    <br/>
+    <br/>
+    <iframe id="report" src="http://localhost:8080/jor/jatoolsreport?file=C:/Users/angel/Desktop/report/33.xml&as=dhtml" style="width:  50%;height: 800px;">
+        报表显示
+    </iframe>
+
+</body>
+
+</html>

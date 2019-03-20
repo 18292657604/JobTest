@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var htf="http://localhost:8080/report8.html";
+        var http = "http://localhost:8888/xici/saveHtml";
+        $("#report").attr("src", htf);
+        function search() {
+            var ip = $("#ip").val();
+            var resource_type = $("#resource_type").val();
+            var fws = http + "?ip=" +ip + "&resourceType="+resource_type;
+            $.get(fws,function (data) {
+                $("#report").attr("src", htf);
+            });
+        }
+    </script>
+</head>
+<body>
+
+IP地址：<input name="ip" type="text" id="ip">&nbsp;&nbsp;&nbsp;&nbsp;
+来源：<input name="resource_type" id="resource_type" type="number"/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<button onclick="search()">搜素</button>
+<br/>
+<br/>
+<br/>
+
+<iframe id="report" style="width:  50%;height: 800px;">
+    报表显示
+</iframe>
+
+</body>
+
+</html>
